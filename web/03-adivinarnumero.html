@@ -1,0 +1,51 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        
+        <script>
+            window.onload = adivinarNumero;
+            MIN = 1;
+            MAX = 100;
+            n_aleatorio = Math.floor(Math.random() * (MAX - MIN + 1)) + MIN;
+            historial_n = "";
+            intentos = 0;
+            encontrado = false;
+            
+            function adivinarNumero() {
+                do {
+                    var n = prompt("Introduce el número: ");    
+                    intentos ++;
+                    historial_n += n;
+                    if(n == n_aleatorio) {
+                        historial_n += " ¡Correcto! Lo has adivinado";
+                        encontrado = true;
+                    }else if(n < n_aleatorio)
+                        historial_n += " Pista! es un número más alto";
+                    else 
+                        historial_n += " Pista! es un número más bajo";
+
+                    historial_n += "<br />";
+
+                    document.getElementById('contenido').innerHTML = historial_n;
+                    document.getElementById('numIntentos').innerHTML = intentos;
+                      
+                } while(! encontrado);
+            }           
+        </script>
+        
+    </head>
+    <body>
+        <h1>Ejercicio 03</h1>
+        <h2>Adivinando un número aleatorio</h2>
+        <p>El ordenador piensa un número aleatorio entre 1 y 100, debes ir introduciendo números para ver si lo aciertas. ¡Suerte!</p>
+        <div id="contenido"></div>
+        <br />
+        <div id="intentos">Intentos:<span id="numIntentos"></span></div>
+    </body>
+</html>

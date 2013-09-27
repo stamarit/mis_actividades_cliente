@@ -1,0 +1,60 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+        <script>
+            window.onload = mostrarTabla;
+            function mostrarTabla() {
+                var i, j, total;
+                var tabla="<table>";
+                for (i = 1; i <= 10; i++) {
+                    tabla +="<tr>";
+                    for (j = 1; j <= 10; j++) {
+                        total = i * j;
+                        total = total;
+                        if (total < 10)
+                            total = total;
+                        tabla +="<td>";
+                        tabla += total;
+                        tabla +="</td>";
+                    }
+                    tabla += "</tr>";
+                }
+                tabla += "</table>";
+                console.log(tabla);
+                document.getElementById('midiv').innerHTML = tabla;
+            }             
+        </script>
+        
+        <style type="text/css">
+            body {
+                margin: 0;
+                padding: 0;
+            }
+            #wrapper {
+                padding-left: 6em;
+            }
+            #midiv table tr td {
+                text-align: center;
+                padding-left: 15px;
+                padding-right: 15px;
+                background-color: #A9D0F5;
+                color: #fff;
+            }
+        </style>
+
+    </head>
+    <body>
+        <div id="wrapper">
+            <h1>Ejercicio 01</h1>
+            <h2>Tabla de multiplicar</h2>
+            <div id="midiv"></div>
+        </div>
+    </body>
+</html>

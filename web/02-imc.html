@@ -1,0 +1,60 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        
+        <script>
+            function pedirDatos() {
+                var altura = prompt("Introduzca su altura: ");
+                var peso = prompt("Introduzca ahora su peso: ");
+            
+                var imc = calcuar_imc(altura,peso);
+                
+                document.getElementById('contenido').innerHTML = "Resultado a su índice de masa corporal(IMC): " + imc;
+                
+            } 
+            function calcuar_imc(altura, peso) {
+                var imc;
+                var respuesta;
+                
+                imc = peso / Math.pow(altura,2);
+                
+                if(imc >= 40)
+                    respuesta = "Obeso tipo III";
+                else if (imc > 35 && imc < 39.99)
+                    respuesta = "Obeso tipo II";
+                else if(imc > 30 && imc < 34.99)
+                    respuesta = "Obeso tipo I";
+                else if(imc >= 30)
+                    respuesta = "Obeso";
+                else if(imc > 25 && imc < 29.99)
+                    respuesta = "Preobeso";
+                else if(imc >= 25)
+                    respuesta = "Sobrepeso";
+                else if(imc > 18.5 && imc < 24.99)
+                    respuesta = "Normal";
+                else if(imc > 17 && imc < 18.49)
+                    respuesta = "Delgadez no muy pronunciada";
+                else if(imc > 16 && imc < 16.99) 
+                    respuesta = "Delgadez moderada";
+                else if(imc < 16) 
+                    respuesta = "Delgadez severa";
+                else if(imc < 15.99)
+                    respuesta = "Infrapeso";
+                
+                return imc +"  "+ respuesta;
+            }
+            window.onload = pedirDatos;
+        </script>
+    </head>
+    <body>
+        <h1>Ejercicio 02</h1>
+        <h2>Calculo de masa corporal:</h2>
+        <div id="contenido"></div>
+    </body>
+</html>
