@@ -1,0 +1,43 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+
+ENUNCIADO:
+  Escribe un programa en javascript que mediante un bucle pida al usuario una serie indefinida de números. La entrada de números se hace mediante prompts. Cuando el usuario escribe “fin” entonces se escribe en la página la cantidad de números introducidos, la suma de los números y la media de los mismos.
+Si el usuario introduce alguna entrada que no sea un número ni “fin”, el proceso lo detecta y vuelve a pedir la entrada por prompt.
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        
+        <script>
+            window.onload = media;
+            function media() {
+                salir = false;
+                count = 0;
+                sum = 0;
+                media = 0;
+                do {
+                    var n = prompt("Introduce el número: ");
+                    if( ! isNaN(n) && n != "fin") {
+                       sum += parseInt(n);// Sumar a sum lo que haya insertado el usuario
+                       count++; // Incrementar cantidad de nº insertados
+                    }else{
+                        salir = true;
+                        media = sum / count;
+                        document.getElementById('resultados').innerHTML = "Cantidad de nºs introducidos: " + count + "<br />Suma = "+ sum + "<br />Media = " + media;
+                    }
+                } while(! salir);
+            }
+        </script>
+    </head>
+    <body>
+        <h1>Ejercicio 04</h1>
+        <h2>Media</h2>
+        <p>¡¡¡ Escribe "fin" para dejar de insertar números !!!</p><br />
+        <p>Mostrar la cantidad de números introducidos, la suma de los números y la media de los mismos.</p>
+        <div id="resultados"></div>
+    </body>
+</html>
