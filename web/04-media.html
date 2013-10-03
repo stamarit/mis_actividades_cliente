@@ -21,10 +21,10 @@ Si el usuario introduce alguna entrada que no sea un número ni “fin”, el pr
                 media = 0;
                 do {
                     var n = prompt("Introduce el número: ");
-                    if( ! isNaN(n) && n != "fin") {
+                    if( ! isNaN(n) ) {
                        sum += parseInt(n);// Sumar a sum lo que haya insertado el usuario
                        count++; // Incrementar cantidad de nº insertados
-                    }else{
+                    }else if(n == "fin"){
                         salir = true;
                         media = sum / count;
                         document.getElementById('resultados').innerHTML = "Cantidad de nºs introducidos: " + count + "<br />Suma = "+ sum + "<br />Media = " + media;
