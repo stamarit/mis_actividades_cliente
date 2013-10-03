@@ -18,24 +18,29 @@ and open the template in the editor.
             encontrado = false;
             
             function adivinarNumero() {
+                abrirTabla = "<table><tr><th>Intentos</th><th>Números</th><th>Pista</th></tr>";
+                cerrarTabla = "</table>";
+                resultado = "";
+                
                 do {
+                    resultado += "<tr>"
                     var n = prompt("Introduce el número: ");    
                     intentos ++;
-                    historial_n += n;
+                    resultado += "<td>" + intentos + "</td>";
+                    resultado += "<td>" + n + "</td>";
                     if(n == n_aleatorio) {
-                        historial_n += " ¡Correcto! Lo has adivinado";
+                        resultado += "<td> ¡Correcto! Lo has adivinado </td>";
                         encontrado = true;
                     }else if(n < n_aleatorio)
-                        historial_n += " Pista! es un número más alto";
+                        resultado += "<td> Pista! es un número más alto </td>";
                     else 
-                        historial_n += " Pista! es un número más bajo";
+                        resultado += "<td> Pista! es un número más bajo </td>";
 
-                    historial_n += "<br />";
-
-                    document.getElementById('contenido').innerHTML = historial_n;
-                    document.getElementById('numIntentos').innerHTML = intentos;
-                      
-                } while(! encontrado);
+                    resultado += "</tr>";
+                    document.getElementById('contenido').innerHTML = abrirTabla + resultado + cerrarTabla;
+                    
+                } while(!encontrado && n !== undefined && n !== null && n != "")
+                
             }           
         </script>
         

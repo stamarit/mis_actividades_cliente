@@ -1,0 +1,56 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+
+
+  
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        
+        <script>
+            window.onload = init;
+            function init() {
+                // Pedir día
+                do {
+                    dia = prompt("Introduce un día (1..31): ");
+                    if(isNaN(dia) || dia < 1 || dia > 31) {
+                        alert("Valor de día incorrecto");
+                    }
+                }while(isNaN(dia) || dia < 1 || dia > 31);
+                // Pedir mes
+                do {
+                    dia = prompt("Introduce un mes (1..12): ");
+                    if(isNaN(dia) || mes < 1 || mes > 12) {
+                        alert("Valor de mes incorrecto");
+                    }
+                }while(isNaN(mes) || mes < 1 || mes > 12);
+                // Pedir año
+                do {
+                    anyo = prompt("Introduce un año (1950..2013): ");
+                    if(isNaN(anyo) || anyo < 1950 || anyo > 2013) {
+                        alert("Valor de año incorrecto");
+                    }
+                }while(isNaN(anyo) || anyo < 1950 || anyo > 2013);
+                
+                validarFecha(dia,mes,anyo);
+            }
+                   
+            function validarFecha(dia,mes,anyo) {
+                
+                var dString = dia+"/"+mes+"/"+anyo;
+                var d = new Date(dString);
+                
+                document.getElementById('resultados').innerHTML = d;
+            }
+        </script>
+    </head>
+    <body>
+        <h1>Ejercicio 08</h1>
+        <h2>Utilizando el objeto Fecha</h2>
+        <div id="resultados"></div>
+    </body>
+</html>
