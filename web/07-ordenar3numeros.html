@@ -1,0 +1,63 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+
+ENUNCIADO:
+  Pedir 3 nºs al usuario y ordenarlos de menor a mayor sin utilizar arrays
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        
+        <script>
+            window.onload = ordenar;
+            function ordenar() {
+                count = 0;
+                do {
+                    var n = prompt("Introduce un número: ");
+                    if(isNaN(n)) {
+                        alert("El número introducido no es válido");
+                    }else{
+                        count ++;
+                        switch(count) {
+                            case 1: 
+                                n1 = n;
+                                break;
+                            case 2:
+                                n2 = n;
+                                break;
+                            case 3:
+                                n3 = n;
+                                break;
+                        }
+                    }
+                } while(isNaN(n) || count < 3);
+                
+                numsOrdenadosMayMenor = "";
+                if(n1 < n2) {
+                    men1 = n1;
+                    may1 = n2;
+                }else{
+                    men1 = n2;
+                    may1 = n1;
+                }
+                numsOrdenadosMayMenor += men1 + " " + may1;
+                if(n3 < men1) {
+                    numsOrdenadosMayMenor = n3 + " " + numsOrdenadosMayMenor;
+                }else{
+                    numsOrdenadosMayMenor += " " + n3;
+                }
+                
+                document.getElementById('resultados').innerHTML = numsOrdenadosMayMenor;
+            }
+        </script>
+    </head>
+    <body>
+        <h1>Ejercicio 06</h1>
+        <h2>¿Par o Impar?</h2>
+        <p>Comprobar si el número introducido es par o impar: </p>
+        <div id="resultados"></div>
+    </body>
+</html>
