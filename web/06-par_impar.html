@@ -1,0 +1,38 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+
+ENUNCIADO:
+  Pide un numero entero positivo y le dice al usuario si es par o impar
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        
+        <script>
+            window.onload = par_impar;
+            function par_impar() {
+                do {
+                var n = prompt("Introduce un número: ");
+                if(isNaN(n)) {
+                    alert("El número introducido no es válido");
+                }
+                } while(isNaN(n));
+                
+                if(n % 2 == 0) {
+                    document.getElementById('resultados').innerHTML = "El número introducido es PAR.";
+                }else{
+                    document.getElementById('resultados').innerHTML = "El número introducido es IMPAR.";
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <h1>Ejercicio 06</h1>
+        <h2>¿Par o Impar?</h2>
+        <p>Comprobar si el número introducido es par o impar: </p>
+        <div id="resultados"></div>
+    </body>
+</html>
