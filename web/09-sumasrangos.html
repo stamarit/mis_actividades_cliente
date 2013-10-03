@@ -14,28 +14,57 @@ and open the template in the editor.
         <script>
             window.onload = init;
             function init() {
+                n1 = "";
+                n2 = "";
                 // Pedir día
                 do {
                     n1 = prompt("Introduce un número: ");
                     if(isNaN(n1)) {
                         alert("Número no válido");
                     }
-                }while(isNaN(n1));
+                } while ( isNaN(n1) );
                 // Pedir mes
                 do {
                     n2 = prompt("Introduce otro número: ");
                     if(isNaN(n2)) {
                         alert("Número no válido");
                     }
-                }while(isNaN(n2));
+                    if( parseInt(n1) > parseInt(n2) ) {
+                        alert("Debe ser mayor que " + n1);
+                    }
+                } while ( isNaN(n2) || parseInt(n1) > parseInt(n2) );
                 
+                numsListMenorMayor = "";
+                numsListMayorMenor = "";
+                resultSuma = 0;
+                resultSumaPares = 0;
+                resultSumaImpares = 0;
+                for(i = n1, j = n2; i <= parseInt(n2); i++, j--) {
+                    numsListMenorMayor += i + " ";
+                    numsListMayorMenor += j + " ";
+                    resultSuma += parseInt(i);
+                    if(i % 2 == 0) {
+                        resultSumaPares += parseInt(i);
+                    } else {
+                        resultSumaImpares += parseInt(i);
+                    } 
+                }
                 
+                document.getElementById('resultadoMenor').innerHTML = "<h2> Listado de números de menor a mayor: </h2>" + numsListMenorMayor;
+                document.getElementById('resultadoMayor').innerHTML = "<h2> Listado de números de mayor a menor: </h2>" + numsListMayorMenor;
+                document.getElementById('resultadoSuma').innerHTML = "<h2> Resultado suma total: </h2>" + resultSuma;
+                document.getElementById('resultadoSumaPares').innerHTML = "<h2> Resultado suma números pares: </h2>" + resultSumaPares;
+                document.getElementById('resultadoSumaImpares').innerHTML = "<h2> Resultado suma números impares: </h2>" + resultSumaImpares;
             }
         </script>
     </head>
     <body>
         <h1>Ejercicio 09</h1>
         <h2>Sumas en rangos</h2>
-        <div id="resultado"></div>
+        <div id="resultadoMenor"></div>
+        <div id="resultadoMayor"></div>
+        <div id="resultadoSuma"></div>
+        <div id="resultadoSumaPares"></div>
+        <div id="resultadoSumaImpares"></div>
     </body>
 </html>
