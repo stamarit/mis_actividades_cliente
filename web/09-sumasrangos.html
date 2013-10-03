@@ -1,0 +1,39 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+
+
+  
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        
+        <script>
+            window.onload = init;
+            function init() {
+                // Pedir día
+                do {
+                    n1 = prompt("Introduce un número: ");
+                    if(isNaN(n1)) {
+                        alert("Número no válido");
+                    }
+                }while(isNaN(n1));
+                // Pedir mes
+                do {
+                    n2 = prompt("Introduce otro número: ");
+                    if(isNaN(n2)) {
+                        alert("Número no válido");
+                    }
+                }while(isNaN(n2));
+            }
+        </script>
+    </head>
+    <body>
+        <h1>Ejercicio 08</h1>
+        <h2>Utilizando el objeto Fecha</h2>
+        <div id="resultado"></div>
+    </body>
+</html>
