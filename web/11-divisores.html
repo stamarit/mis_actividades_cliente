@@ -1,0 +1,44 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        
+        <LINK REL=StyleSheet HREF="css/bootstrap.min.css" TYPE="text/css" MEDIA=screen>
+
+        <script>
+            window.onload = init;
+            
+            function init() {
+                var n = prompt("¿De qué números deseas conocer sus divisores? ");
+                
+                divisores = "";
+                for(var i = 0; i <= n; i++) {
+                    if( parseInt(n) % i == 0) {
+                        divisores += i + " ";
+                    }
+                }
+                document.getElementById('tituloDiv').innerHTML = "Los divisores de " + n + " son: ";
+                document.getElementById('midiv').innerHTML = divisores;
+            }
+                        
+        </script>
+        
+        <style type="text/css">
+            
+        </style>
+
+    </head>
+    <body>
+        <div id="wrapper">
+            <h1>Ejercicio 11</h1>
+            <h2>Divisores de un número</h2>
+            <div id="tituloDiv"></div>
+            <div id="midiv"></div>
+        </div>
+    </body>
+</html>

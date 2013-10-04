@@ -1,0 +1,61 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        
+        <LINK REL=StyleSheet HREF="css/bootstrap.min.css" TYPE="text/css" MEDIA=screen>
+
+        <script>
+            window.onload = init;
+            
+            function init() {
+                
+                var n;
+                var num = 0;
+                var primos;
+                var div = 0;
+                
+                do {
+                    var n = prompt("Mostrar los números primos menores o iguales a: ");
+                } while (isNaN(n));
+                
+                
+                do{
+                    num++;
+                    for(var i=1; i <= num; i++) {
+                        if(num % i == 0) {
+                            div++;
+                        }
+                    }
+                    if(div==2) {
+                        primos++;
+                    }
+                    div=0;
+
+                }while(primos < n);
+                
+                document.getElementById('tituloDiv').innerHTML = "Los números primos menores que " + n + " son: ";
+                document.getElementById('midiv').innerHTML = primos;
+            }
+                        
+        </script>
+        
+        <style type="text/css">
+            
+        </style>
+
+    </head>
+    <body>
+        <div id="wrapper">
+            <h1>Ejercicio 11</h1>
+            <h2>Divisores de un número</h2>
+            <div id="tituloDiv"></div>
+            <div id="midiv"></div>
+        </div>
+    </body>
+</html>
