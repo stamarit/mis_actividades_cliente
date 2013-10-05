@@ -1,0 +1,91 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        
+        <LINK REL=StyleSheet HREF="css/bootstrap.min.css" TYPE="text/css" MEDIA=screen>
+
+        <script>
+            window.onload = init;
+            
+            function init() {
+                               
+                var n = prompt("Calcular el factorial del número:");
+                var r = showMathExprFactorial(n);
+                    
+                document.getElementById('tituloDiv').innerHTML = "El factorial de " + n + " es: ";
+                document.getElementById('midiv').innerHTML = r;
+            }
+            
+            /**
+             * Resuelve el factorial de un número de manera recursiva (llamandose a sí misma)
+             * @param {type} n
+             * @returns {Number|@exp;@call;factorialRecursivo}
+             */
+            function factorialRecursivo(n)
+            {
+              if(n < 2)
+                return 1;
+              else
+                return n * factorialRecursivo(n-1);
+            }
+            
+            
+            /**
+             * Calcula el factorila de un número
+             * @param {type} n Número a comprobar
+             * @returns {type} r Resultado del cálculo
+             */
+            function factorial(n) {
+                var r = 1;
+                if(n > 0) {
+                    for(var i = 1; i <= n; i++ ) {
+                        r *= parseInt(i);
+                    } 
+                }
+                return r;
+            }
+            
+            /**
+             * Muestra la expresión del calculo del factorial y calcula su valor llamando
+             * a la function "factorial(n)"
+             * @param {type} n Número a calcular
+             * @returns {String} expr Expresión desarrollada y resultado del cálculo
+             **/
+             function showMathExprFactorial(n) {
+                var expr = "" + n + "! = ";
+                if(n > 0) {
+                    for(var i = 1; i <= n; i++) {
+                        if( i == 1) {
+                            expr += i;
+                        }else{
+                            expr += " x " + i;
+                        }
+                    }
+                }
+                expr += " = " + factorialRecursivo(n);
+                
+                return expr;
+            }
+            
+        </script>
+        
+        <style type="text/css">
+            
+        </style>
+
+    </head>
+    <body>
+        <div id="wrapper">
+            <h1>Ejercicio 13</h1>
+            <h2>Factorial</h2>
+            <div id="tituloDiv"></div>
+            <div id="midiv"></div>
+        </div>
+    </body>
+</html>
