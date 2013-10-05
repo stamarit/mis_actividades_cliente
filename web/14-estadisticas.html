@@ -24,8 +24,8 @@ and open the template in the editor.
                 var numSimbolos = 0;
         
                 /* Expresiones regulares a comparar */
-                var regMinusculas = /^[a-z]$/i;
-                var regMayusculas = /^[A-Z]$/i;
+                var regMinusculas = /^[a-z]$/;
+                var regMayusculas = /^[A-Z]$/;
                 var regSimbolos = /^[^\w ]$/i;
                 
                 for (var i = 0; i< txt.length; i++) {
@@ -43,17 +43,37 @@ and open the template in the editor.
                         numSimbolos++;
                     }
                 }
+                
+                // Contar palabras
+                var primerBlanco = /^ /
+                var ultimoBlanco = / $/
+                var variosBlancos = /[ ]+/g
 
-                alert("Minusculas: " + numMinusculas);
+                txt = txt.replace (variosBlancos," ");
+                txt = txt.replace (primerBlanco,"");
+                txt = txt.replace (ultimoBlanco,"");
+                txtTroceado = txt.split(" ");
+                numPalabras = txtTroceado.length;
                 
                     
-                document.getElementById('tituloDiv').innerHTML = "";
-                //document.getElementById('midiv').innerHTML = ;
+                //document.getElementById('tituloDiv').innerHTML = "";
+                var contenido = "<h4>Frase que has escrito: <p class='frase'>" + txt + "</p></h4><br />";
+                contenido += "<h4>Palabras: " + numPalabras + "<br />";
+                contenido += "<h4>Letras mayúsculas: " + numMayusculas + "<br />";
+                contenido += "<h4>Letras minúsculas: " + numMinusculas + "<br />";
+                contenido += "<h4>Símbolos: " + numSimbolos + "<br />";
+                document.getElementById('midiv').innerHTML = contenido;
+                
             }
         </script>
         
         <style type="text/css">
-            
+            body {
+                margin: 20px;
+            }
+            .frase {
+                color: blue;
+            }
         </style>
 
     </head>
