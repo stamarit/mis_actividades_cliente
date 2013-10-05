@@ -1,0 +1,47 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        
+        <LINK REL=StyleSheet HREF="css/bootstrap.min.css" TYPE="text/css" MEDIA=screen>
+
+        <script>
+            window.onload = init;
+            
+            function init() {
+                
+                var txt1 = prompt("Introduce una frase:");
+                var txt2 = prompt("Palabra a buscar en la frase:");
+                var txt3 = prompt("Sustituirla por:");
+                
+                
+                while(txt1.search(txt2) !== -1) {
+                    alert(txt1.indexOf(txt2));
+                    var txt1 = txt1.replace(txt2,txt3); 
+                }
+                document.getElementById('resultado').innerHTML = txt1;
+               
+            }
+            
+        </script>
+        
+        <style type="text/css">
+            body {
+                margin: 20px;
+            }
+        </style>
+
+    </head>
+    <body>
+        <div id="wrapper">
+            <h1>Ejercicio 16</h1>
+            <h2>Sustituciones</h2>
+            <div id="resultado"></div>
+        </div>
+    </body>
+</html>
