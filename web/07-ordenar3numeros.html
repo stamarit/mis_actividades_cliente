@@ -23,31 +23,88 @@ ENUNCIADO:
                         count ++;
                         switch(count) {
                             case 1: 
-                                n1 = n;
+                                a = n;
                                 break;
                             case 2:
-                                n2 = n;
+                                b = n;
                                 break;
                             case 3:
-                                n3 = n;
+                                c = n;
                                 break;
                         }
                     }
                 } while(isNaN(n) || count < 3);
                 
+                /*
                 numsOrdenadosMayMenor = "";
                 if(n1 < n2) {
-                    men1 = n1;
-                    may1 = n2;
-                }else{
-                    men1 = n2;
-                    may1 = n1;
-                }
-                numsOrdenadosMayMenor += men1 + " " + may1;
-                if(n3 < men1) {
-                    numsOrdenadosMayMenor = n3 + " " + numsOrdenadosMayMenor;
-                }else{
-                    numsOrdenadosMayMenor += " " + n3;
+                    if(n3 < n1) {
+                        if(n3 < n2) {
+                            numsOrdenadosMayMenor = n1 + " " + n2 + " " + n3;
+                        } else {
+                            numsOrdenadosMayMenor = n1 + " " + n3 + " " + n2;
+                        }
+                    } else {
+                        numsOrdenadosMayMenor = n3 + " " + n1 + " " + n2;
+                    }
+                } else {
+                    if(n3 < n2) {
+                        numsOrdenadosMayMenor = n3 + " " + n2 + " " + n1;
+                    } else {
+                        if(n3 < n1) {
+                            numsOrdenadosMayMenor = n2 + " " + n3 + " " + n1;
+                        } else {
+                            numsOrdenadosMayMenor = n2 + " " + n1 + " " + n3;
+                        }
+                    }
+                }*/
+                
+                /*
+                numsOrdenadosMayMenor = "";
+                if(parseInt(a) < parseInt(b)) {
+                    if(parseInt(c) < parseInt(a)) {
+                        if(parseInt(c) < parseInt(b)) {
+                            numsOrdenadosMayMenor = a + " " + b + " " + c;
+                        } else {
+                            numsOrdenadosMayMenor = a + " " + c + " " + b;
+                        }
+                    } else {
+                        numsOrdenadosMayMenor = c + " " + a + " " + b;
+                    }
+                } else {
+                    if(parseInt(c) < parseInt(b)) {
+                        numsOrdenadosMayMenor = c + " " + b + " " + a;
+                    } else {
+                        if(parseInt(c) < parseInt(a)) {
+                            numsOrdenadosMayMenor = b + " " + c + " " + a;
+                        } else {
+                            numsOrdenadosMayMenor = b + " " + a + " " + c;
+                        }
+                    }
+                }*/
+                    
+                numsOrdenadosMayMenor = "";
+                if(a < b) {
+                    if(c < a) {
+                        numsOrdenadosMayMenor = c + " " + a + " " + b;
+                    } else {
+                        //numsOrdenadosMayMenor = c + " " + a + " " + b;
+                        if(c < b) {
+                            numsOrdenadosMayMenor = a + " " + c + " " + b;
+                        } else {
+                            numsOrdenadosMayMenor = a + " " + b + " " + c;
+                        }
+                    }
+                } else {
+                    if(c < b) {
+                        numsOrdenadosMayMenor = c + " " + b + " " + a;
+                    } else {
+                        if(c < a) {
+                            numsOrdenadosMayMenor = b + " " + c + " " + a;
+                        } else {
+                            numsOrdenadosMayMenor = b + " " + a + " " + c;
+                        }
+                    }
                 }
                 
                 document.getElementById('resultados').innerHTML = numsOrdenadosMayMenor;

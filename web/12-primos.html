@@ -14,33 +14,47 @@ and open the template in the editor.
             window.onload = init;
             
             function init() {
-                
-                var n;
-                var num = 0;
-                var primos;
-                var div = 0;
-                
+                               
                 do {
                     var n = prompt("Mostrar los números primos menores o iguales a: ");
                 } while (isNaN(n));
                 
-                
-                do{
-                    num++;
-                    for(var i=1; i <= num; i++) {
-                        if(num % i == 0) {
-                            div++;
-                        }
+                var primos = "";
+                for(var i = 1; i < n; i++) {
+                    if(isPrimo(i)) {
+                        primos += i + " ";
                     }
-                    if(div==2) {
-                        primos++;
-                    }
-                    div=0;
-
-                }while(primos < n);
-                
+                }
+                    
                 document.getElementById('tituloDiv').innerHTML = "Los números primos menores que " + n + " son: ";
                 document.getElementById('midiv').innerHTML = primos;
+            }
+            
+            /**
+             * Comprueba si un número es primo
+             * @param {type} n Número a comprobar
+             * @returns {Boolean} True si es primo, false si No lo es
+             */
+            function isPrimo(n) {
+                
+                var primo = true;
+                
+                if(n < 1) {
+                        primo = false;
+                } else {
+                    var j = parseInt(1);
+                    for(var i = parseInt(n) - parseInt(j); i > 1 && primo; i--) {
+                        if( parseInt(n) % parseInt(i) == 0 ) {
+                            //alert( parseInt(n) % (parseInt(n) - parseInt(i)) );
+                            primo = false;
+                        }else{
+                           // alert( parseInt(n) % (parseInt(n) - parseInt(i)) );
+                        }
+                        j++;
+                    }
+                }
+                
+                return primo;
             }
                         
         </script>
@@ -52,8 +66,8 @@ and open the template in the editor.
     </head>
     <body>
         <div id="wrapper">
-            <h1>Ejercicio 11</h1>
-            <h2>Divisores de un número</h2>
+            <h1>Ejercicio 12</h1>
+            <h2>Números primos</h2>
             <div id="tituloDiv"></div>
             <div id="midiv"></div>
         </div>
