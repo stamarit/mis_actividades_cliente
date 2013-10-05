@@ -1,0 +1,89 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        
+        <LINK REL=StyleSheet HREF="css/bootstrap.min.css" TYPE="text/css" MEDIA=screen>
+
+        <script>
+            window.onload = init;
+            
+            function init() {
+                var txt = prompt("Escribe una frase:");
+                
+                palindromo = palindromo(txt);
+                palindromoCadaDos = dedosendos(txt);
+                fraseAlReves = txtRevesPalabraAPalabra(txt);
+                
+                document.getElementById('txtOriginal').innerHTML = txt;
+                document.getElementById('palindromo').innerHTML = palindromo;
+                document.getElementById('palindromoCadaDos').innerHTML = palindromoCadaDos;
+                document.getElementById('fraseAlReves').innerHTML = fraseAlReves;
+            }
+            /**
+             * Devuelve el palíndromo de una frase recibida por parámetro
+             * @param {type} txt
+             * @returns {String} txt_palindromo
+             */
+            function palindromo(txt) {
+                
+                var txt_palindromo = "";
+                
+                for(var i = txt.length - 1; i >= 0; i--) {
+                    txt_palindromo += txt.charAt(i);
+                }
+                
+                return txt_palindromo;
+            }
+            
+            function dedosendos(txt) {
+                var txt_result = "";
+                
+                var count = 0;
+                for(var i = 0 ; i <= txt.length; i++ ) {
+                    txt_result = txt.charAt(i) + txt.charAt(i+1) + txt_result;
+                    i++;
+                }
+               
+                return txt_result;
+            }
+            
+            function txtRevesPalabraAPalabra(txt) {
+                
+                txt_result = "";
+                txtTroceado = txt.split(" ");
+                for(var i = txtTroceado.length -1; i >= 0; i--) {
+                    txt_result += txtTroceado[i] + " ";
+                }
+                
+                return txt_result;
+            }
+        </script>
+        
+        <style type="text/css">
+            body {
+                margin: 20px;
+            }
+        </style>
+
+    </head>
+    <body>
+        <div id="wrapper">
+            <h1>Ejercicio 15</h1>
+            <h2>Palíndromos</h2>
+            <div><h3>Texto introducido:</h3></div>
+            <div id="txtOriginal"></div>
+            <div><h3>Palíndromo:</h3></div>
+            <div id="palindromo"></div>
+            <div><h3>Palíndromo cada 2 caracteres:</h3></div>
+            <div id="palindromoCadaDos"></div>
+            <div><h3>Frase al reves:</h3></div>
+            <div id="fraseAlReves"></div>
+        </div>
+    </body>
+</html>
