@@ -21,7 +21,7 @@ and open the template in the editor.
                 
                 var dto = comprobarDescuento(precio,stock);
                 
-                document.getElementById('resultado').innerHTML = ""
+                document.getElementById('resultado').innerHTML = "El descuento a aplicar es del " + dto;
                
             }
             
@@ -41,7 +41,7 @@ and open the template in the editor.
                     dto = "3%";
                 } else if( precio >= 1000 && stock >= 100 && stock <= 200 ) {
                     dto = "5%";
-                } else if( precio >= 1000 && stock < 200 ) {
+                } else if( precio >= 1000 && stock > 200 ) {
                     dto = "7%";
                 }
                 
