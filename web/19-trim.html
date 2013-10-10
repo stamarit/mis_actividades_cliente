@@ -1,0 +1,62 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        
+        <LINK REL=StyleSheet HREF="css/bootstrap.min.css" TYPE="text/css" MEDIA=screen>
+
+        <script>
+            window.onload = init;
+            
+            function init() {
+                
+                var cadena = prompt("Introduce una frase:");   
+                
+                cadena = limpiarEspacios(cadena);
+                
+                document.getElementById('resultado').innerHTML = cadena;
+               
+            }
+            
+            function limpiarEspacios(cadena) {
+                
+                // Contar espacios delante
+                var espaciosDelante = 0;
+                for(var i = 0; cadena.charAt(i) === " "; i++) {
+                    espaciosDelante++;
+                }
+                // Contar espacios detras
+                var espaciosDetras = 0;
+                for(var i = cadena.length - 1; cadena.charAt(i) === " "; i--) {
+                    espaciosDetras++;
+                }
+                
+                alert(espaciosDelante + "espacios delante borrados");
+                alert(espaciosDetras + "espacios detras borrados");
+                
+                cadena = cadena.substr(espaciosDelante - 1, cadena.length - espaciosDetras);
+                
+                return cadena;
+            }
+        </script>
+        
+        <style type="text/css">
+            body {
+                margin: 20px;
+            }
+        </style>
+
+    </head>
+    <body>
+        <div id="wrapper">
+            <h1>Ejercicio 18</h1>
+            <h2>Descuentos</h2>
+            <div id="resultado"></div>
+        </div>
+    </body>
+</html>

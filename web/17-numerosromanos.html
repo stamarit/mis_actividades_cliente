@@ -15,20 +15,91 @@ and open the template in the editor.
             
             function init() {
                 
-                /* Equivalencia */
-                I = 1;
-                V = 5;
-                X = 10;
-                L = 50;
-                C = 100;
-                D = 500;
-                M = 1000;
-               
-            }
-            function isRomano(n) {
+                do {
+                    var n = prompt("Dame un número menor que 1000 en romano o decimal: ");
+                } while(parseInt(n) > 2000);
                 
+                var n_original = n;
+                
+                var cifras = n.length;
+                
+                var unidad = "";
+                var decena = "";
+                var centena = "";
+                var millar = "";
+             
+                for(var i = 1; i <= n.length; i++) {
+                    
+                    switch(i) {
+                        case 1:
+                            var v = parseInt(n % 10);
+                            unidad = dameRomano("I","V","X",v);
+                            break;
+                        case 2:
+                            var v = parseInt((n % 100) / 10);
+                            decena = dameRomano("X","L","C",v);
+                            break;
+                        case 3:
+                            var v = parseInt((n % 1000) / 100);
+                            centena = dameRomano("C","D","M",v);
+                            break;
+                        case 4:
+                            var v = n / 1000;
+                            millar = "M";
+                            break;         
+                    }
+                }
+                
+                var resultado = millar + centena + decena + unidad;
+                document.getElementById('resultado').innerHTML = "Número en decimal: " + n_original + " = Número romano: " + resultado;
             }
-            function isDecimal(n) {
+            /**
+             * Recibe 3 simbolos romanos (I V X, X L C, C D M) dependiendo de la posición decimal (unidad, decena, centena, etc) que ocupa
+             * el número, y como último parámetro  el dígito decimal a convertir en romano.
+             * @param {type} s1
+             * @param {type} s2
+             * @param {type} s3
+             * @param {type} n
+             * @returns {unresolved}
+             */
+            function dameRomano(s1,s2,s3,n) {
+                
+                var resultado = "";
+                
+                switch(n) {
+                    case 1:
+                        resultado = s1;
+                        break;
+                    case 2:
+                        resultado = s1+s1;
+                        break;
+                    case 3:
+                        resultado = s1+s1+s1;
+                        break;
+                    case 4:
+                        resultado = s1+s2;
+                        break;
+                    case 5:
+                        resultado = s2;
+                        break;
+                    case 6:
+                        resultado = s2+s1;
+                        break;
+                    case 7:
+                        resultado = s2+s1+s1;
+                        break;
+                    case 8:
+                        resultado = s2+s1+s1+s1;
+                        break;
+                    case 9:
+                        resultado = s1+s3;
+                        break;
+                }
+                
+                return resultado;
+            }
+            
+            function dameDecimal() {
                 
             }
             
