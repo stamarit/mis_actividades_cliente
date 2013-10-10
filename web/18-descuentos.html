@@ -1,0 +1,66 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        
+        <LINK REL=StyleSheet HREF="css/bootstrap.min.css" TYPE="text/css" MEDIA=screen>
+
+        <script>
+            window.onload = init;
+            
+            function init() {
+                
+                var precio = prompt("Introduce el precio del artículo:");
+                
+                var stock = prompt("Introduce el stock para ese artículo:");   
+                
+                var dto = comprobarDescuento(precio,stock);
+                
+                document.getElementById('resultado').innerHTML = ""
+               
+            }
+            
+            function comprobarDescuento(precio, stock) {
+                
+                if(precio < 100 && stock < 10) {
+                    dto = "2%";
+                } else if( precio < 100 && stock < 100 ) {
+                    dto = "10%";
+                } else if( precio < 100 && stock < 1000 ) {
+                    dto = "25%";
+                } else if( precio >= 100 && precio <= 1000 && stock < 10 ) {
+                    dto = "4%";
+                } else if( precio >= 100 && precio <= 1000 && stock < 1000 ) {
+                    dto = "8%";
+                } else if( precio >= 1000 && stock < 100 ) {
+                    dto = "3%";
+                } else if( precio >= 1000 && stock >= 100 && stock <= 200 ) {
+                    dto = "5%";
+                } else if( precio >= 1000 && stock < 200 ) {
+                    dto = "7%";
+                }
+                
+                return dto;
+            }
+        </script>
+        
+        <style type="text/css">
+            body {
+                margin: 20px;
+            }
+        </style>
+
+    </head>
+    <body>
+        <div id="wrapper">
+            <h1>Ejercicio 18</h1>
+            <h2>Descuentos</h2>
+            <div id="resultado"></div>
+        </div>
+    </body>
+</html>
